@@ -1,0 +1,81 @@
+.sort-container {
+    margin: 20px;
+    position: relative;
+    width: 200px;
+}
+
+.sort-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.sort-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4f5fed;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.sort-button:hover {
+    background-color: #3f4fd8;
+}
+
+.sort-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.sort-menu.active {
+    display: block;
+}
+
+.sort-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sort-option:hover {
+    background-color: #f0f0f0;
+}
+
+.sort-option.active {
+    background-color: #e6e6e6;
+    font-weight: bold;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .sort-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Стили для опции сброса сортировки */
+.sort-option[data-sort="reset"] {
+    border-bottom: 2px solid #eee;
+    color: #666;
+    font-style: italic;
+}
+
+.sort-option[data-sort="reset"]:hover {
+    background-color: #fff0f0;
+    color: #ff4444;
+} 

@@ -1,0 +1,260 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+.other {
+  background-image: url('img/back/back.jpg');
+  background-size: 1000px 800px fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+header {
+  background-color: #4f5fed;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  background-color: #4f5fed;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 20px;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.home,
+.contacts {
+  text-align: center;
+}
+
+.collection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.item {
+
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.item img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category {
+  text-align: center;
+  text-decoration: none;
+}
+
+.item img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  transition: transform 0.3s;
+}
+
+.item:hover img {
+  transform: scale(1.05);
+}
+
+.item p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+}
+
+.catalog1 {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+
+  color: #000000;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+
+}
+
+.product-item {
+  width: calc(25% - 20px);
+  height: auto;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+  width: 290px;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container1 {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+}
+
+.contacts {
+  background: rgba(255, 255, 255, 0.8);
+
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+@media screen and (max-width: 768px) {
+  .center-image {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .center-image {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .center-image {
+    width: 60%;
+  }
+}
+
+.main-nav {
+  display: flex;
+}
+
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для кнопки бургер-меню */
+.burger-menu-button {
+  display: none; /* Скрыта на десктопе */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+  .burger-menu-button {
+      display: block; /* Показываем кнопку бургер-меню */
+      cursor: pointer;
+      z-index: 11; /* Поверх меню */
+  }
+
+  /* Скрываем горизонтальное меню */
+  .main-nav {
+      display: none; /* Скрыто по умолчанию */
+      position: fixed; /* Меню фиксируется поверх контента */
+      top: 0;
+      right: 0;
+      width: 200px; /* Ширина выпадающего меню */
+      height: 100%; /* Высота на весь экран */
+      background-color: #4f5fed; /* Цвет фона меню */
+      flex-direction: column; /* Вертикальный список */
+      justify-content: center; /* Центрирование ссылок */
+      align-items: center; /* Центрирование ссылок */
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Тень для меню */
+      z-index: 10; /* Поверх контента */
+  }
+
+  .main-nav.nav-active {
+      display: flex; /* Показываем меню при клике на бургер */
+  }
+
+  .main-nav a {
+      margin-bottom: 20px; /* Отступ между ссылками */
+      font-size: 1.2em; /* Увеличиваем размер шрифта ссылок */
+  }
+}

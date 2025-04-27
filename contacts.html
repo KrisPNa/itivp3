@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .container1 {
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        min-height: calc(100vh - 60px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #333;
+      }
+
+      header {
+        background-color: #4f5fed;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .main-nav {
+        display: flex;
+      }
+
+      .burger-menu-button {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5em;
+      }
+
+      footer {
+        overflow: hidden;
+        padding: 10px 20px;
+        text-align: center;
+        background-color: #4f5fed;
+        color: #fff;
+      }
+
+      .contacts {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Медиа-запрос для мобильных устройств */
+      @media (max-width: 768px) {
+        .burger-menu-button {
+          display: block;
+          cursor: pointer;
+          z-index: 11;
+        }
+
+        .main-nav {
+          display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 200px;
+          height: 100%;
+          background-color: #4f5fed;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+          z-index: 10;
+        }
+
+        .main-nav.nav-active {
+          display: flex;
+        }
+
+        .main-nav a {
+          margin-bottom: 20px;
+          font-size: 1.2em;
+        }
+
+        .footer-burger {
+          display: block !important;
+          cursor: pointer;
+          z-index: 11;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 1.5em;
+        }
+
+        .footer-nav {
+          display: none !important;
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          width: 200px;
+          background-color: #4f5fed;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+          z-index: 10;
+          padding: 20px 0;
+        }
+
+        .footer-nav.nav-active {
+          display: flex !important;
+        }
+
+        .footer-nav a {
+          margin: 10px 0;
+          font-size: 1.2em;
+        }
+
+        footer {
+          position: relative;
+        }
+      }
+    </style>
+  </head>
+  <body class="other">
+    <header>
+      <h1>Магазин одежды</h1>
+      <!-- Кнопка бургер-меню -->
+      <button class="burger-menu-button">
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Навигация -->
+      <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="about.html">О нас</a>
+        <a href="collection.html">Коллекция</a>
+      </nav>
+    </header>
+
+    <div class="container1">
+      <div class="image-container">
+        <img src="img/магазин1.jpg" alt="Изображение магазина" />
+      </div>
+
+      <div class="contacts">
+        <h2>Контакты</h2>
+        <p>Адрес: г. Минск, ул. Карла Маркса, д.13</p>
+        <p>Телефон: +375(29) 123-45-67</p>
+        <p>Email: clothshop@gmail.com</p>
+
+        <div class="working-hours">
+          <p><span>Время работы:</span></p>
+          <p>Понедельник – Пятница: 10:00 – 19:00</p>
+          <p>Суббота: 10:00 – 18:00</p>
+          <p>Воскресенье: выходной</p>
+        </div>
+      </div>
+    </div>
+
+    <footer style="display: flex; justify-content: space-between; align-items: center; padding: 20px; color: white;">
+      <p style="margin: 0;">&copy; 2025 Магазин одежды. Все права защищены.</p>
+      <!-- Добавляем кнопку бургер-меню для футера -->
+      <button class="burger-menu-button footer-burger" style="display: none;">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="footer-nav" style="display: flex; gap: 20px;">
+          <a href="index.html" style="color: white; text-decoration: none;">Главная</a>
+          <a href="news.html" style="color: white; text-decoration: none;">Новости</a>
+          <a href="contacts.html" style="color: white; text-decoration: none;">Контакты</a>
+          <a href="about.html" style="color: white; text-decoration: none;">О нас</a>
+          <a href="collection.html" style="color: white; text-decoration: none;">Коллекция</a>
+      </nav>
+    </footer>
+
+    <script>
+      const burgerButton = document.querySelector('.burger-menu-button');
+      const footerBurgerButton = document.querySelector('.footer-burger');
+      const nav = document.querySelector('.main-nav');
+      const footerNav = document.querySelector('.footer-nav');
+
+      burgerButton.addEventListener('click', () => {
+          nav.classList.toggle('nav-active');
+          footerNav.classList.remove('nav-active'); // Закрываем футер меню при открытии верхнего
+      });
+
+      footerBurgerButton.addEventListener('click', () => {
+          footerNav.classList.toggle('nav-active');
+          nav.classList.remove('nav-active'); // Закрываем верхнее меню при открытии футера
+      });
+
+      // Закрытие меню при клике вне его
+      document.addEventListener('click', (e) => {
+          if (!e.target.closest('.burger-menu-button') && !e.target.closest('.main-nav')) {
+              nav.classList.remove('nav-active');
+          }
+          if (!e.target.closest('.footer-burger') && !e.target.closest('.footer-nav')) {
+              footerNav.classList.remove('nav-active');
+          }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин одежды</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Добавляем стили для карусели -->
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="carousel-app/src/components/Dropdown.css">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        header {
+            background-color: #4f5fed;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Стили для навигации */
+        .main-nav {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .home {
+            text-align: center;
+        }
+
+        .home h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .home p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .center-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для секции категорий (CSS Grid) */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 15px;
+            padding: 20px;
+        }
+
+        .category {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #4f5fed;
+            border-radius: 25px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .category a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .category a:hover {
+            color: #fff;
+            background-color: #4f5fed;
+        }
+
+        footer {
+            overflow: hidden;
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #4f5fed;
+            color: #fff;
+        }
+
+        /* Стили для кнопки бургер-меню */
+        .burger-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        /* Стиль для блока с ссылкой на новости */
+        .news-link {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .news-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4f5fed;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .news-link a:hover {
+            background-color: #3a4bd1;
+        }
+
+        /* Медиа-запрос для мобильных устройств */
+        @media (max-width: 768px) {
+            /* Бургер-меню */
+            .burger-menu-button {
+                display: block;
+                cursor: pointer;
+                z-index: 11;
+            }
+
+            .main-nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 200px;
+                height: 100%;
+                background-color: #4f5fed;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+                z-index: 10;
+            }
+
+            .main-nav.nav-active {
+                display: flex;
+            }
+
+            .main-nav a {
+                margin-bottom: 20px;
+                font-size: 1.2em;
+            }
+
+            /* Адаптация секций */
+            .home h2 {
+                font-size: 2em;
+            }
+
+            .home p {
+                font-size: 1em;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+
+            .category {
+                padding: 10px;
+            }
+        }
+
+        /* Стили для карусели */
+        #carousel-root {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Магазин одежды</h1>
+        <!-- Кнопка бургер-меню -->
+        <button class="burger-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Навигация -->
+        <nav class="main-nav">
+            <a href="index.html">Главная</a>
+            <a href="news.html">Новости</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="about.html">О нас</a>
+            <a href="collection.html">Коллекция</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="home">
+            <h2>Добро пожаловать в наш интернет-магазин!</h2>
+            <p>Здесь вы найдёте одежду на любой вкус и стиль!</p>
+            
+            <!-- Добавляем контейнер для карусели -->
+            <div id="carousel-root"></div>
+            
+            <!-- <img src="img/back/back2.jpg" alt="Добро пожаловать" class="center-image" /> -->
+        </div>
+
+        <!-- Ссылка на страницу с новостями -->
+        <div class="news-link">
+            <a href="news.html">Читать все новости магазина →</a>
+        </div>
+
+        <!-- Секция категорий -->
+        <div class="categories">
+            <div class="category">
+                <a href="futbolki.html">Футболки</a>
+            </div>
+            <div class="category">
+                <a href="platya.html">Платья</a>
+            </div>
+            <div class="category">
+                <a href="hudi.html">Худи</a>
+            </div>
+            <div class="category">
+                <a href="shorty.html">Шорты</a>
+            </div>
+            <div class="category">
+                <a href="shtany.html">Штаны</a>
+            </div>
+            <div class="category">
+                <a href="sportivnye_kostyumy.html">Спорт</a>
+            </div>
+        </div>
+    </div>
+
+   <footer style="display: flex; justify-content: space-between; align-items: center; padding: 20px; color: white;">
+      <p style="margin: 0;">&copy; 2025 Магазин одежды. Все права защищены.</p>
+      <!-- Добавляем кнопку бургер-меню для футера -->
+      <button class="burger-menu-button footer-burger" style="display: none;">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="footer-nav" style="display: flex; gap: 20px;">
+          <a href="index.html" style="color: white; text-decoration: none;">Главная</a>
+          <a href="news.html" style="color: white; text-decoration: none;">Новости</a>
+          <a href="contacts.html" style="color: white; text-decoration: none;">Контакты</a>
+          <a href="about.html" style="color: white; text-decoration: none;">О нас</a>
+          <a href="collection.html" style="color: white; text-decoration: none;">Коллекция</a>
+      </nav>
+    </footer>
+
+    <!-- Добавляем необходимые скрипты для React -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Добавляем скрипт карусели -->
+    <script type="text/babel">
+        // Компонент карусели
+        const Carousel = ({ images, interval = 2000 }) => {
+            const [currentIndex, setCurrentIndex] = React.useState(0);
+
+            React.useEffect(() => {
+                const timer = setInterval(() => {
+                    setCurrentIndex((prevIndex) => 
+                        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+                    );
+                }, interval);
+
+                return () => clearInterval(timer);
+            }, [images.length, interval]);
+
+            const goToSlide = (index) => {
+                setCurrentIndex(index);
+            };
+
+            const goToPrevious = (e) => {
+                e.stopPropagation(); // Предотвращаем всплытие события
+                setCurrentIndex((prevIndex) => 
+                    prevIndex === 0 ? images.length - 1 : prevIndex - 1
+                );
+            };
+
+            const goToNext = (e) => {
+                e.stopPropagation(); // Предотвращаем всплытие события
+                setCurrentIndex((prevIndex) => 
+                    prevIndex === images.length - 1 ? 0 : prevIndex + 1
+                );
+            };
+
+            const handleSlideClick = (index) => {
+                // Если это не первый слайд (индекс > 0), переходим на страницу collection
+                if (index > 0) {
+                    window.location.href = 'collection.html';
+                }
+            };
+
+            return (
+                <div className="carousel-container">
+                    <div className="carousel-wrapper">
+                        <div 
+                            className="carousel-slides"
+                            style={{
+                                transform: `translateX(-${currentIndex * 100}%)`,
+                            }}
+                        >
+                            {images.map((image, index) => (
+                                <div 
+                                    key={index} 
+                                    className="carousel-slide"
+                                    onClick={() => handleSlideClick(index)}
+                                    style={{ cursor: index > 0 ? 'pointer' : 'default' }}
+                                    title={index > 0 ? 'Перейти в коллекцию' : ''}
+                                >
+                                    <img 
+                                        src={image} 
+                                        alt={`Slide ${index + 1}`} 
+                                        className="carousel-image"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <button 
+                            className="carousel-arrow prev" 
+                            onClick={goToPrevious}
+                            aria-label="Previous slide"
+                        >
+                            ❮
+                        </button>
+                        
+                        <button 
+                            className="carousel-arrow next" 
+                            onClick={goToNext}
+                            aria-label="Next slide"
+                        >
+                            ❯
+                        </button>
+
+                        <div className="carousel-dots">
+                            {images.map((_, index) => (
+                                <button
+                                    key={index}
+                                    className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // Предотвращаем всплытие события
+                                        goToSlide(index);
+                                    }}
+                                    aria-label={`Go to slide ${index + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Массив изображений для карусели
+        const images = [
+            'img/back/back_index.jpg',
+            'img/back/back1.jpg',
+            'img/back/back2.jpg',
+            'img/back/back3.jpg',
+            'img/back/back4.jpg'
+        ];
+
+        // Рендерим карусель
+        ReactDOM.render(
+            <Carousel images={images} interval={2000} />,
+            document.getElementById('carousel-root')
+        );
+    </script>
+
+    <script>
+      const burgerButton = document.querySelector('.burger-menu-button');
+      const footerBurgerButton = document.querySelector('.footer-burger');
+      const nav = document.querySelector('.main-nav');
+      const footerNav = document.querySelector('.footer-nav');
+
+      burgerButton.addEventListener('click', () => {
+          nav.classList.toggle('nav-active');
+          footerNav.classList.remove('nav-active'); // Закрываем футер меню при открытии верхнего
+      });
+
+      footerBurgerButton.addEventListener('click', () => {
+          footerNav.classList.toggle('nav-active');
+          nav.classList.remove('nav-active'); // Закрываем верхнее меню при открытии футера
+      });
+
+      // Закрытие меню при клике вне его
+      document.addEventListener('click', (e) => {
+          if (!e.target.closest('.burger-menu-button') && !e.target.closest('.main-nav')) {
+              nav.classList.remove('nav-active');
+          }
+          if (!e.target.closest('.footer-burger') && !e.target.closest('.footer-nav')) {
+              footerNav.classList.remove('nav-active');
+          }
+      });
+    </script>
+</body>
+</html>
