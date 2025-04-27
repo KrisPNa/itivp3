@@ -192,6 +192,44 @@
             .category {
                 padding: 10px;
             }
+
+            .footer-burger {
+                display: block !important;
+                cursor: pointer;
+                z-index: 11;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5em;
+            }
+
+            .footer-nav {
+                display: none !important;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 200px;
+                background-color: #4f5fed;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+                z-index: 10;
+                padding: 20px 0;
+            }
+
+            .footer-nav.nav-active {
+                display: flex !important;
+            }
+
+            .footer-nav a {
+                margin: 10px 0;
+                font-size: 1.2em;
+            }
+
+            footer {
+                position: relative;
+            }
         }
 
         /* Стили для карусели */
@@ -205,11 +243,9 @@
 <body>
     <header>
         <h1>Магазин одежды</h1>
-        <!-- Кнопка бургер-меню -->
         <button class="burger-menu-button">
             <i class="fas fa-bars"></i>
         </button>
-        <!-- Навигация -->
         <nav class="main-nav">
             <a href="index.html">Главная</a>
             <a href="news.html">Новости</a>
@@ -258,19 +294,18 @@
         </div>
     </div>
 
-   <footer style="display: flex; justify-content: space-between; align-items: center; padding: 20px; color: white;">
-      <p style="margin: 0;">&copy; 2025 Магазин одежды. Все права защищены.</p>
-      <!-- Добавляем кнопку бургер-меню для футера -->
-      <button class="burger-menu-button footer-burger" style="display: none;">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav class="footer-nav" style="display: flex; gap: 20px;">
-          <a href="index.html" style="color: white; text-decoration: none;">Главная</a>
-          <a href="news.html" style="color: white; text-decoration: none;">Новости</a>
-          <a href="contacts.html" style="color: white; text-decoration: none;">Контакты</a>
-          <a href="about.html" style="color: white; text-decoration: none;">О нас</a>
-          <a href="collection.html" style="color: white; text-decoration: none;">Коллекция</a>
-      </nav>
+    <footer style="display: flex; justify-content: space-between; align-items: center; padding: 20px; color: white;">
+        <p style="margin: 0;">&copy; 2025 Магазин одежды. Все права защищены.</p>
+        <button class="burger-menu-button footer-burger" style="display: none;">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="footer-nav" style="display: flex; gap: 20px;">
+            <a href="index.html" style="color: white; text-decoration: none;">Главная</a>
+            <a href="news.html" style="color: white; text-decoration: none;">Новости</a>
+            <a href="contacts.html" style="color: white; text-decoration: none;">Контакты</a>
+            <a href="about.html" style="color: white; text-decoration: none;">О нас</a>
+            <a href="collection.html" style="color: white; text-decoration: none;">Коллекция</a>
+        </nav>
     </footer>
 
     <!-- Добавляем необходимые скрипты для React -->
